@@ -1,6 +1,10 @@
 import javax.swing.JFrame;
+import java.awt.event.KeyListener;
+import java.awt.event.KeyEvent;
 
-public class Game {
+
+public class Game implements KeyListener{
+
 
     private Snake player;
     private Food food;
@@ -25,6 +29,43 @@ public class Game {
 
     public static void main(String[] args) throws Exception {
 
+    }
+
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+        
+    }
+
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        
+        /* Key events that listen for the presses
+         * on A W S and D, this is used for the movement 
+         * of the snake. */
+
+        int keyCode = e.getKeyCode();
+
+        if (keyCode == KeyEvent.VK_W) {
+            player.up();
+        }
+        else if (keyCode == KeyEvent.VK_S) {
+            player.down();
+        }
+        else if(keyCode == KeyEvent.VK_A) {
+            player.left();
+        }
+        else {
+            player.right();
+        }
+
+    }
+
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        
     }
 }
   
