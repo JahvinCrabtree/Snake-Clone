@@ -47,6 +47,9 @@ public class Snake {
         this.body = body;
     }
 
+    /* Creating methods that are used to make 
+       the snake change direction. */
+
     public void up() {
         move = "UP";
     }

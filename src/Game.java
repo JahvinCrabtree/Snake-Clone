@@ -5,7 +5,6 @@ import java.awt.event.KeyEvent;
 
 public class Game implements KeyListener{
 
-
     private Snake player;
     private Food food;
     private Graphics graphics;
@@ -26,17 +25,14 @@ public class Game implements KeyListener{
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-
     public static void main(String[] args) throws Exception {
 
     }
-
 
     @Override
     public void keyTyped(KeyEvent e) {
         
     }
-
 
     @Override
     public void keyPressed(KeyEvent e) {
@@ -62,10 +58,28 @@ public class Game implements KeyListener{
 
     }
 
-
     @Override
-    public void keyReleased(KeyEvent e) {
-        
+    public void keyReleased(KeyEvent e) {        
     }
+
+    public Snake getPlayer() {
+        return player;
+    }
+    public void setPlayer(Snake player) {
+        this.player = player;
+    }
+    public Food getFood() {
+        return food;
+    }
+    public void setFood(Food food) {
+        this.food = food;
+    }
+    public JFrame getWindow() {
+        return window;
+    }
+    public void setWindow(JFrame window) {
+        this.window = window;
+    } 
+
 }
   
