@@ -18,11 +18,44 @@ public class Game implements KeyListener{
     public static final int dimension = 20;
 
     public Game() {
+        player = new Snake();
+        food = new Food(player);
+        graphics = new Graphics(this);
+
         window = new JFrame();
 
         window.setTitle("Snake");
         window.setSize(width * dimension, height * dimension);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+
+    /* Checks to see if the Snakes head hits a wall. */
+
+    public boolean checkWallCollision() {
+        if(player.getX() < 0 || player.getX() >= width * dimension || player.getY() < 0 || player.getY() >= height * dimension){
+            return true;
+        } 
+        return false;
+    }
+    
+    /* Checks to see if the snake touches a piece of food. */
+
+    public boolean checkFoodCollision() {
+        if(player.getX() == food.getX() * dimension && player.getY() == food.getY() * dimension){
+            return true;
+        }
+        return false;
+    }
+
+    /* Checks to see if the snake touches itself.  */
+
+    public boolean checkSelfCollision() {
+        for (int i = 1; i < player.getBody().size(); i++) {
+            if(player.getX() == player.getBody().get(i).x && player.getY() == player.getBody().get(i).y);{
+            return true;
+        }
+        }
+        return false;
     }
 
     public static void main(String[] args) throws Exception {
