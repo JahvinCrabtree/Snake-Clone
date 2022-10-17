@@ -5,7 +5,10 @@ import javax.swing.Timer;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 import java.awt.Graphics2D;
+
+import java.awt.Rectangle;
 
 
 public class Graphics extends JPanel implements ActionListener{
@@ -38,6 +41,20 @@ public class Graphics extends JPanel implements ActionListener{
         super.paintComponent(g);
 
         Graphics2D g2d = (Graphics2D) g;
+
+        /* drawing the background */
+        g2d.setColor(Color.black);
+        g2d.fillRect(0,0, Game.width * Game.dimension, Game.height * Game.dimension);
+
+        /* drawing the food. */
+        g2d.setColor(Color.red);
+        g2d.fillRect(f.getX() * Game.dimension, f.getY() * Game.dimension, Game.dimension, Game.dimension);
+
+        /* Drawing the snake. */
+        g2d.setColor(Color.orange);
+        for(Rectangle r : s.getBody()) {
+            g2d.fill(r);
+        }
     }
 
     /* This action gets called every 100ms which calls
