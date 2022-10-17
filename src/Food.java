@@ -21,8 +21,9 @@ public class Food {
         x = (int)(Math.random() * Game.width);
         y = (int)(Math.random() * Game.height);
 
-        boolean onSnake = false;
+        boolean onSnake = true;
         while(!onSnake) {
+            onSnake = false;
             for (Rectangle r : player.getBody()){
                 if (r.x ==x && r.y == y) {
                     onSnake = true;
@@ -34,14 +35,14 @@ public class Food {
     public int getX() {
         return x;
     }
-    public void setX() {
-        this.x = x;
-    }
+    // public void setX() {
+    //     this.x = x;
+    // }
     public int getY() {
         return y;
     }
-    public void setY() {
-        this.y = y;
-    }
+    // public void setY() {
+    //     this.y = y;
+    // }
 
 }

@@ -114,19 +114,26 @@ public class Snake {
        the snake change direction. */
 
     public void up() {
+        if(move!="DOWN") {
         move = "UP";
+    }
     }
 
     public void down() {
+        if(move!="UP") {
         move = "DOWN";
     }
-
+    }
     public void left() {
+        if(move!="RIGHT") {
         move = "LEFT";
+    }
     }
 
     public void right() {
+        if(move!="LEFT") {
         move = "RIGHT";
+    }
     }
 
 }
