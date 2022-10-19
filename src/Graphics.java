@@ -29,6 +29,7 @@ public class Graphics extends JPanel implements ActionListener{
         game = g;
         s = g.getPlayer();
         f = g.getFood();
+        // sf = g.getSuperFood();
 
         this.addKeyListener(g);
         this.setFocusable(true);
@@ -58,7 +59,7 @@ public class Graphics extends JPanel implements ActionListener{
         /* drawing the background */
 
         g2d.setColor(Color.black);
-        g2d.fillRect(0,0, Game.width * Game.dimension, Game.height * Game.dimension);
+        g2d.fillRect(0,0, Game.width * Game.dimension + 5, Game.height * Game.dimension + 5);
 
         /* drawing the food. */
 

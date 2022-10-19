@@ -18,8 +18,8 @@ public class Food {
        doesn't pick an area ontop of the snake. */
 
     public void randomSpawn(Snake player) {
-        x = (int)(Math.random() * Game.width);
-        y = (int)(Math.random() * Game.height);
+        x = (int)(Math.random() * Game.width - 1);
+        y = (int)(Math.random() * Game.height - 1);
 
         boolean onSnake = true;
         while(!onSnake) {
