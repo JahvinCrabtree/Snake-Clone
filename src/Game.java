@@ -9,6 +9,7 @@ public class Game implements KeyListener{
     private Snake player;
     private Food food;
     private Graphics graphics;
+    // private SuperFood superFood;
 
     private JFrame window;
 
@@ -29,8 +30,10 @@ public class Game implements KeyListener{
 
         window.setVisible(true);
         window.setTitle("Snake");
-        window.setSize(width * dimension, height * dimension);
+        window.setSize(width * dimension + 2, height * dimension + 4);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        window.setResizable(false);
+        window.setLocation(50,50);
     }
 
     public void start() {
@@ -132,6 +135,12 @@ public class Game implements KeyListener{
     public void setFood(Food food) {
         this.food = food;
     }
+    // public SuperFood getSuperFood() {
+    //     return superFood;
+    // }
+    // public void setSuperFood(SuperFood superFood) {
+    //     this.superFood = superFood;
+    // }
     public JFrame getWindow() {
         return window;
     }
