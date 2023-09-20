@@ -1,39 +1,33 @@
-// import java.awt.Rectangle;
+public class SuperFood extends Food {
 
-// public class SuperFood {
+    private int speedX;
+    private int speedY;
+    private int extraScore = 5; // for example
 
-//     private int x;
-//     private int y;
+    public SuperFood(Snake player) {
+        super(player);
+        
+        // Assigning random initial speed
+        this.speedX = (Math.random() > 0.5) ? 1 : -1; 
+        this.speedY = (Math.random() > 0.5) ? 1 : -1; 
+    }
 
-//     public SuperFood (Snake player, Food food){
-//         this.randomSuperSpawn(player, food);
-//     }
+    public void move() {
+        this.setX(this.getX() + speedX);
+        this.setY(this.getY() + speedY);
+        
+        // If SuperFood hits a boundary, reverse its speed
+        if (this.getX() <= 0 || this.getX() >= Game.width - 1) {
+            speedX = -speedX;
+        }
+        
+        if (this.getY() <= 0 || this.getY() >= Game.height - 1) {
+            speedY = -speedY;
+        }
+    }
 
-//     public void randomSuperSpawn(Snake player, Food food) {
-//         x = (int)(Math.random() * Game.width - 1);
-//         y = (int)(Math.random() * Game.height - 1);
-
-//         /* Same code is used to prevent it from spawning on the snake. */
-
-//         boolean onSnake = true;
-//         while(!onSnake) {
-//             onSnake = false;
-//             for (Rectangle r : player.getBody()){
-//                 if (r.x ==x && r.y == y) {
-//                     onSnake = true;
-//                 }
-//             }
-//         }
-
-//         boolean onFood = true;
-//         while (!onFood) {
-//             Rectangle sf;
-//             onFood = false;
-//             if (sf.x == x && sf.y == y) {
-//                 onFood = true;
-//             }
-//         }
-
-//     }    
-// }
-
+    public int getExtraScore() {
+        return extraScore;
+    }
+    
+}
